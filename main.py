@@ -11,6 +11,7 @@ except:
   import socket
   
 servo = PWM(Pin(16))
+servo.freq(50)
 
 def light_on():
     servo.value(2900)
