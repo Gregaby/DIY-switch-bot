@@ -1,14 +1,19 @@
+#Please if this does not work message me on discord ill be happy to help I am new to coding so I wont be able to solve all issues - grog#2413 - harrygriggs167@gmail.com
+#Some values will need to be changed within this code please refer to the notes on the side to see what the values should be changed to be specific for you.
+#Lines that which need values changing are; 18 , 21 , 24 , 30 , 88 , 94
+#To use this you will need to run it through thonny and in the shell it will come up with an ip - Type this in any browser make sure you are on the same internet as the raspberry pi.
+#If an error of "wifi connection failed" comes up you may have got the ssid, password wrong for your internet also be sure the pico can reach your internet.
+
 from machine import Pin, PWM
 from time import sleep 
 import network
-import time
 try:
   import usocket as socket
 except:
   import socket
-light_pin=16
+light_pin=16                            #This needs to be changed to the pin out where the signal is going into from the servo (I used GP16 on the pico W)
 light = Pin(light_pin, Pin.OUT)
-servo = PWM(Pin(16))
+servo = PWM(Pin(16))                    #This needs to be changed to the pin out where the signal is going into from the servo (I used GP16 on the pico W)
 servo.freq(50)
 
 
@@ -25,7 +30,7 @@ light_idle()
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
-wlan.connect("VFAST SG ","95281018")       # ssid, password
+wlan.connect("***","***")       # ssid, password - These are case sensitive.
  
 # connect the network       
 wait = 10
@@ -83,13 +88,13 @@ while True:
         light_off = request.find('/?light=off')
         if light_on == 6:
           print('Light ON')
-          servo.duty_u16(3450)
+          servo.duty_u16(3450)       #This will turn the servo to the position where the light will be turned off (These numbers will need to be changed for your servo) p.s just fiddle around with the numbers till you get the right angle for me its around 20 degrees ish
           sleep(1)
           light_idle()
           print('Light idle')
         if light_off == 6:
           print('Light OFF')
-          servo.duty_u16(5050)
+          servo.duty_u16(5050)       #This will turn the servo to the position where the light will be turned on  (These numbers will need to be changed for your servo) p.s just fiddle around with the numbers till you get the right angle for me its around 20 degrees ish
           sleep(1)
           light_idle()
           print('Light idle')
