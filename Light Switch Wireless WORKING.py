@@ -3,6 +3,8 @@
 #Lines that which need values changing are; 18 , 21 , 24 , 30 , 88 , 94
 #To use this you will need to run it through thonny and in the shell it will come up with an ip - Type this in any browser make sure you are on the same internet as the raspberry pi.
 #If an error of "wifi connection failed" comes up you may have got the ssid, password wrong for your internet also be sure the pico can reach your internet.
+#Pico pins - VBUS  - GRD           - GP16 
+#Servo pin - Red/+ - black/brown/- - Orange/yellow/signal
 
 from machine import Pin, PWM
 from time import sleep 
