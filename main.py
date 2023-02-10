@@ -41,7 +41,7 @@ while wait > 0:
         break
     wait -= 1
     print('waiting for connection...')
-    time.sleep(1)
+    sleep(1)
  
 # Handle connection error
 if wlan.status() != 3:
