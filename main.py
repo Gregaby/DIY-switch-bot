@@ -8,6 +8,7 @@
 
 from machine import Pin, PWM
 from time import sleep 
+import time
 import network
 try:
   import usocket as socket
